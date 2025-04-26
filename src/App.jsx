@@ -85,6 +85,17 @@ function App() {
     setModalImage(null);
   };
 
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") {
+        handleCloseModal();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
   return (
     <>
       <SearchBar onSubmit={handleSearch} />
@@ -97,7 +108,9 @@ function App() {
         </button>
       )}
       {showModal && modalImage && (
-        <ImageModal image={modalImage} onClose={handleCloseModal} />
+        <div className="overlay" onClick={handleCloseModal}>
+          <ImageModal image={modalImage} />
+        </div>
       )}
       {showToaster && (
         <Toaster
