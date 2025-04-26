@@ -15,10 +15,10 @@ form input:focus-visible {
 }
 
 input {
-  padding: 10px 10px;
+  padding: 4px 10px;
   margin-right: 16px;
   border: solid 1px grey;
-  font-size: 18px;
+  font-size: 20px;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
