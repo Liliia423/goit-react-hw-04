@@ -94,7 +94,19 @@ function App() {
       {showModal && modalImage && (
         <ImageModal image={modalImage} onClose={handleCloseModal} />
       )}
-      <Toaster position="top-right" />
+      <Toaster
+        position="top-right"
+        toastOptions={{
+          style: {
+            background: "#3C763D",
+            color: "#fff",
+            fontSize: "16px",
+            borderRadius: "4px",
+            textAlign: "left",
+          },
+          duration: 5000,
+        }}
+      />
     </>
   );
 }
