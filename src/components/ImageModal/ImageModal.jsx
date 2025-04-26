@@ -4,7 +4,7 @@ import styles from "./ImageModal.module.css";
 export default function ImageModal({ image, onClose }) {
   if (!image) return null;
 
-  const { urls, alt_description, user } = image;
+  const { urls, alt_description } = image;
 
   return (
     <Modal
@@ -19,16 +19,6 @@ export default function ImageModal({ image, onClose }) {
         alt={alt_description || "Image"}
         className={styles.modalImage}
       />
-      <div className={styles.modalInfo}>
-        <p>
-          <b>Author:</b> {user.name}
-        </p>
-        {alt_description && (
-          <p>
-            <b>Description:</b> {alt_description}
-          </p>
-        )}
-      </div>
     </Modal>
   );
 }

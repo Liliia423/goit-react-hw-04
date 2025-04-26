@@ -10,6 +10,7 @@ export default function SearchBar({ onSubmit }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     const trimmedQuery = inputValue.trim();
     if (trimmedQuery === "") {
       onSubmit("");
@@ -23,6 +24,7 @@ export default function SearchBar({ onSubmit }) {
     <header>
       <form onSubmit={handleSubmit}>
         <input
+          name="search"
           className={styles["search-field-input"]}
           type="text"
           autoComplete="off"

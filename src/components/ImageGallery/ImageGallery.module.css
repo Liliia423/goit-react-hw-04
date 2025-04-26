@@ -1,7 +1,3 @@
-.galleryContainer {
-  padding: 20px;
-}
-
 .galleryList {
   display: flex;
   flex-wrap: wrap;

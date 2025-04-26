@@ -19,6 +19,7 @@ function App() {
   const [error, setError] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [modalImage, setModalImage] = useState(null);
+  const [showToaster, setShowToaster] = useState(false);
 
   useEffect(() => {
     if (!query) return;
@@ -38,6 +39,7 @@ function App() {
         });
 
         if (response.data.results.length === 0) {
+          setShowToaster(true);
           toast.error("Sorry, no images found. Try a different search.");
           return;
         }
@@ -49,6 +51,7 @@ function App() {
         );
       } catch (err) {
         setError(`An error occurred while fetching images: ${err.message}`);
+        setShowToaster(true);
       } finally {
         setIsLoading(false);
       }
@@ -59,6 +62,7 @@ function App() {
 
   const handleSearch = (newQuery) => {
     if (newQuery === "") {
+      setShowToaster(true);
       toast.error("Please enter a search query.");
       return;
     }
@@ -85,34 +89,31 @@ function App() {
     <>
       <SearchBar onSubmit={handleSearch} />
       {error && <ErrorMessage message={error} />}
-
       <ImageGallery images={images} onImageClick={handleImageClick} />
-
       {isLoading && <Loader />}
-
       {images.length > 0 && !isLoading && (
         <button className="load-more-button" onClick={handleLoadMore}>
           Load More
         </button>
       )}
-
       {showModal && modalImage && (
         <ImageModal image={modalImage} onClose={handleCloseModal} />
       )}
-
-      <Toaster
-        position="top-right"
-        toastOptions={{
-          style: {
-            background: "#3C763D",
-            color: "#fff",
-            fontSize: "16px",
-            borderRadius: "4px",
-            textAlign: "left",
-          },
-          duration: 5000,
-        }}
-      />
+      {showToaster && (
+        <Toaster
+          position="top-right"
+          toastOptions={{
+            style: {
+              background: "#3C7630",
+              color: "#fff",
+              fontSize: "16px",
+              borderRadius: "4px",
+              textAlign: "left",
+            },
+            duration: 5000,
+          }}
+        />
+      )}
     </>
   );
 }

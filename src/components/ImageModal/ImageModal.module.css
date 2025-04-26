@@ -11,14 +11,14 @@
 }
 
 .modal {
-  background: transparent; /* 🚫 Ніякого білого фону */
-  padding: 0; /* 🚫 Прибрати padding */
+  background: transparent;
+  padding: 0;
   max-width: 90vw;
   max-height: 90vh;
   margin: auto;
   position: relative;
   border-radius: 0;
-  overflow: hidden; /* 🚫 Прибрати скролінг */
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -38,15 +38,10 @@
 .modalImage {
   max-width: 100%;
   height: auto;
-  margin-bottom: 20px;
-}
-
-.modalInfo {
-  text-align: center;
 }
 
 .overlay {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 1);
   position: fixed;
   top: 0;
   left: 0;
@@ -58,7 +53,6 @@
 }
 
 .modal {
-  background: transparent;
   padding: 0;
   margin: 0;
   border: none;
