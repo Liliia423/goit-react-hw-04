@@ -2,8 +2,8 @@ import styles from "./ErrorMessage.module.css";
 
 export default function ErrorMessage({ message }) {
   return (
-    <div className={styles.errorContainer}>
-      <p className={styles.errorText}>{message}</p>
+    <div>
+      <p className={styles.error}>{message}</p>
     </div>
   );
 }

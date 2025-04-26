@@ -5,6 +5,7 @@ import SearchBar from "./components/SearchBar/SearchBar";
 import ImageGallery from "./components/ImageGallery/ImageGallery";
 import ImageModal from "./components/ImageModal/ImageModal";
 import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
+import Loader from "./components/Loader/Loader";
 import "./App.css";
 
 const ACCESS_KEY = "6zFA-vdlgqMqQyQVZTbE16l_UAumbiYLaDv-uSJ2rfE";
@@ -84,16 +85,21 @@ function App() {
     <>
       <SearchBar onSubmit={handleSearch} />
       {error && <ErrorMessage message={error} />}
+
       <ImageGallery images={images} onImageClick={handleImageClick} />
+
+      {isLoading && <Loader />}
+
       {images.length > 0 && !isLoading && (
         <button className="load-more-button" onClick={handleLoadMore}>
           Load More
         </button>
       )}
-      {isLoading && <p className="loader">Loading...</p>}
+
       {showModal && modalImage && (
         <ImageModal image={modalImage} onClose={handleCloseModal} />
       )}
+
       <Toaster
         position="top-right"
         toastOptions={{

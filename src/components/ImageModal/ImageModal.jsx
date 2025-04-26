@@ -14,9 +14,6 @@ export default function ImageModal({ image, onClose }) {
       overlayClassName={styles.overlay}
       className={styles.modal}
     >
-      <button className={styles.closeButton} onClick={onClose}>
-        ✖
-      </button>
       <img
         src={urls.regular}
         alt={alt_description || "Image"}
