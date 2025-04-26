@@ -47,6 +47,15 @@ body {
   color: rgb(107, 107, 244);
 }
 
+@keyframes fadeInOverlay {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .overlay {
   position: fixed;
   top: 0;
@@ -57,5 +66,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  animation: fadeInOverlay 0.4s ease forwards;
   z-index: 1000;
 }
