@@ -1,15 +1,35 @@
+import { useState } from "react";
 import styles from "./SearchBar.module.css";
 
-export default function SwearchBar() {
+export default function SearchBar({ onSubmit }) {
+  const [inputValue, setInputValue] = useState("");
+
+  const handleChange = (e) => {
+    setInputValue(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const trimmedQuery = inputValue.trim();
+    if (trimmedQuery === "") {
+      onSubmit("");
+      return;
+    }
+    onSubmit(trimmedQuery);
+    setInputValue("");
+  };
+
   return (
     <header>
-      <form>
+      <form onSubmit={handleSubmit}>
         <input
           className={styles["search-field-input"]}
           type="text"
-          autocomplete="off"
-          autofocus
+          autoComplete="off"
+          autoFocus
           placeholder="Search images and photos"
+          value={inputValue}
+          onChange={handleChange}
         />
         <button className={styles["button-fot-search-field"]} type="submit">
           Search

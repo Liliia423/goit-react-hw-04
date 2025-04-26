@@ -1,0 +1,23 @@
+.cardContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.cardImage {
+  object-fit: cover;
+  width: 400px;
+  height: 200px;
+}
+
+.cardInfo {
+  padding: 12px;
+  text-align: center;
+}
+
+.cardInfo p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #333333;
+}
