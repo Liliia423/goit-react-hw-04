@@ -63,11 +63,6 @@ function App() {
   }, [query, page]);
 
   const handleSearch = (newQuery) => {
-    if (newQuery === "") {
-      setShowToaster(true);
-      toast.error("Please enter a search query.");
-      return;
-    }
     setQuery(newQuery);
     setPage(1);
     setImages([]);
