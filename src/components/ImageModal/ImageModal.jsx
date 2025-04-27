@@ -2,7 +2,7 @@ import Modal from "react-modal";
 import styles from "./ImageModal.module.css";
 
 export default function ImageModal({ image, isOpen, onClose }) {
-  if (!image) return null;
+  if (!isOpen || !image) return null;
 
   const { urls, alt_description } = image;
 
