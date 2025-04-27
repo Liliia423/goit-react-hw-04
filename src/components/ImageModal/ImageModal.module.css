@@ -8,35 +8,32 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1000; /* щоб завжди бути поверх */
 }
 
 .modal {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   background: transparent;
-  padding: 0;
-  max-width: 90vw;
-  max-height: 90vh;
-  border-radius: 0;
   padding: 0;
   margin: 0;
   border: none;
-  overflow: visible;
+  border-radius: 0;
   width: auto;
   height: auto;
-  max-width: none;
-  max-height: none;
-  border: none;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+  position: relative;
 }
 
 .modalImage {
-  max-width: 90vw;
-  max-height: 90vh;
   width: auto;
   height: auto;
+  max-width: 90vw;
+  max-height: 90vh;
   object-fit: contain;
   animation: fadeInZoom 0.4s ease forwards;
 }

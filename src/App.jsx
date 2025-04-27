@@ -8,6 +8,9 @@ import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
 import Loader from "./components/Loader/Loader";
 import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn";
 
+import Modal from "react-modal";
+Modal.setAppElement("#root");
+
 import "./App.css";
 
 const ACCESS_KEY = "6zFA-vdlgqMqQyQVZTbE16l_UAumbiYLaDv-uSJ2rfE";
@@ -103,10 +106,13 @@ function App() {
         <LoadMoreBtn onClick={handleLoadMore} />
       )}
       {showModal && modalImage && (
-        <div className="overlay" onClick={handleCloseModal}>
-          <ImageModal image={modalImage} />
-        </div>
+        <ImageModal
+          image={modalImage}
+          isOpen={showModal}
+          onClose={handleCloseModal}
+        />
       )}
+
       {showToaster && (
         <Toaster
           position="top-right"
